@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1553549542 source:c:\users\suzi\desktop\oop\listeduble\main.cpp
+	<iostream>
+	<fstream>
+	"doubleList.h"
+
+1553420969 c:\users\suzi\desktop\oop\listeduble\listeduble.h
+
+1553550596 c:\users\suzi\desktop\oop\listeduble\doublelist.h
+	<iostream>
+
