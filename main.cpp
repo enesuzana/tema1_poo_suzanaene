@@ -61,11 +61,12 @@ public:
     void setCounter(int nn){ n = nn;}
     int getCounter(){ return n;}
 
-    List concat(List l1, List l2);
+    //List concat(List l1, List l2);
 
     friend istream& operator>>(istream& cin, List &lista);
     friend ostream& operator<<(ostream& out, List &lista);
     friend List operator+(List l1, List l2);
+    float &operator[](int poz);
 };
 
 
@@ -105,6 +106,21 @@ void List::inserare(float valoare, int poz){
     }
     }
     n++;
+}
+
+float& List::operator[](int poz){
+    float *err;
+    float x= -1;
+    err = &x;
+    if ( poz >= n ){
+        cout << " Invalid poz ";
+        return *err;
+    }
+    Nod *nod = head; //pornesc cu primul nod;
+    for( int i = 0 ; i < poz; i++ ){
+        nod = nod->next;
+    }//ajung pe l[poz]
+    return nod->val; //ret val lui nod
 }
 
 istream& operator>>(istream& in, List &lista){
@@ -187,6 +203,16 @@ List operator+(List l1, List l2){
 
 
 int main(){
+    List l3;
+    l3.inserare(1, 0);
+    l3.inserare(2, 1);
+    l3.inserare(3, 2);
+    cout << l3 << " e lista mea" << endl;
+    cout << l3[0] << " primul elem l[0]" << endl;
+    cout << l3[1] << " elem de pe poz 1 l[1]" << endl;
+    cout << l3[2] << " elem de pe poz 2 l[2]" << endl;
+    cout << l3[3] << endl;
+
     int n;
     float x, val;
     cout << "Cate liste? ";
@@ -226,5 +252,6 @@ int main(){
     lista[1].inserare(3,1);
     cout << " Dupa inserarea lui 3 pe poz 1: " << endl;
     lista[1].afis();
+
     return 0;
 }
